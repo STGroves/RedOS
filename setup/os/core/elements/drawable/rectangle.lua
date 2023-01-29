@@ -2,7 +2,7 @@ if not pcall(function()
   require ("../rect")
   require ("../../colours")
 end) then
-  os.loadAPI(".elements/rect")
+  os.loadAPI("./elements/rect")
   os.loadAPI("./colours")
 end
 
