@@ -38,10 +38,10 @@ function New(bounds, colour, borderThickness, borderColour)
   
   function self.GetBounds() return bounds end
 
-  function Draw()
+  function self.Draw()
     local lastPosX, lastPosY = term.getCursorPos()
 
-    local pos = bounds.GetPos()
+    local pos = bounds.GetPosition()
     local dims = bounds.GetSize()
 
     local borderLine = string.rep(borderColour.GetPaint(), dims.X)
@@ -52,9 +52,9 @@ function New(bounds, colour, borderThickness, borderColour)
       term.setCursorPos(pos.X, pos.Y + i)
       
       if i < borderThickness or i > dims.Y - 1 - borderThickness then
-        term.blit(string.rep(" ", dims.X), borderLine)
+        term.blit(string.rep(" ", dims.X), borderLine, borderLine)
       else
-        term.blit(string.rep(" ", dims.X), fillLine)
+        term.blit(string.rep(" ", dims.X), fillLine, fillLine)
       end
     end
 
