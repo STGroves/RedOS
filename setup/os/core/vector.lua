@@ -1,4 +1,6 @@
-require("./object")
+if not pcall(function() require ("./object") end) then
+  os.loadAPI("./object")
+end
 
 function Vector(x, y)
   local self = Object("Vector")

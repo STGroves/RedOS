@@ -1,4 +1,6 @@
-require ("./rect")
+if not pcall(function() require ("./rect") end) then
+  os.loadAPI("./rect")
+end
 
 function ProgressBar(x, y, width, showPercentage, backColour, barColour)
 
