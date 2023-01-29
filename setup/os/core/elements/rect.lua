@@ -2,7 +2,8 @@ if not pcall(function() require ("./vector") end) then
   os.loadAPI("./vector")
 end
 
-function New(x, y, width, height)
+local self = {}
+function self.New(x, y, width, height)
   local pos
   local dims
   
@@ -25,6 +26,22 @@ function New(x, y, width, height)
 
   function self.GetPosition() return pos end
   function self.GetSize() return dims end
+
+  function self.SetPosition(newPos)
+    if not newPos.GetType() == "Vector" then
+      error("newPos must be a Vector")
+    end
+    
+    pos = newPos
+  end
+
+  function self.SetSize(newSize)
+    if not newSize.GetType() == "Vector" then
+      error("newSize must be a Vector")
+    end
+    
+    dims = newSize
+  end
 
   function self.Contains(otherRect)
     if not otherRect.GetType() == "Rect" then
@@ -57,12 +74,16 @@ function New(x, y, width, height)
   function self.Overlaps(otherRect)
     if self.ContainsPoint(otherRect.GetLeft(), otherRect.GetTop()) then
       return true
+
     elseif self.ContainsPoint(otherRect.GetLeft(), otherRect.GetBottom()) then
       return true
+
     elseif self.ContainsPoint(otherRect.GetRight(), otherRect.GetTop()) then
       return true
+
     elseif self.ContainsPoint(otherRect.GetRight(), otherRect.GetBottom()) then
       return true
+
     else
       return false
     end
@@ -70,3 +91,5 @@ function New(x, y, width, height)
 
   return self
 end
+
+return self
