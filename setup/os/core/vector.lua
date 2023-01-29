@@ -3,7 +3,7 @@ if not pcall(function() require ("./object") end) then
 end
 
 function New(x, y)
-  local self = Object("Vector")
+  local self = object.New("Vector")
   self.X = x
   self.Y = y
 

@@ -7,8 +7,8 @@ function New(x, y, width, height)
   local dims
   
   if type(x) == "number" and type(y) == "number" and type(width) == "number" and type(height) == "number" then
-    pos = Vector(x, y)
-    dims = Vector(width, height)
+    pos = vector.New(x, y)
+    dims = vector.New(width, height)
   elseif x.GetType() == "Vector" and y.GetType() == "Vector" then
     pos = x
     dims = y
@@ -16,7 +16,7 @@ function New(x, y, width, height)
     error("Parameters must be either 4 Numbers or 2 Vectors.")
   end
 
-  local self = Object("Rect")
+  local self = object.New("Rect")
 
   function self.GetTop() return pos.Y end
   function self.GetLeft() return pos.X end
@@ -41,7 +41,7 @@ function New(x, y, width, height)
     local pos
 
     if type(arg1) == "number" and type(arg2) == "number" then
-      pos = Vector(arg1, arg2)
+      pos = vector.New(arg1, arg2)
     elseif arg1.GetType() == "Vector" then
       pos = arg1
     else
