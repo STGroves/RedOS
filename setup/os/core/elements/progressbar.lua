@@ -28,7 +28,7 @@ function New(barRect, targetValue, showPercentage, backColour, barColour)
 
   local value = 0
   local backRectangle = rectangle.New(barRect, backColour)
-  local barRectangle = rectangle.New(object.Clone(barRect))
+  local barRectangle = rectangle.New(object.Clone(barRect), barColour)
 
   local self = object.New("ProgressBar")
 
@@ -58,4 +58,6 @@ function New(barRect, targetValue, showPercentage, backColour, barColour)
   function self.UpdateProgress()
     value = math.min(value + 1, targetValue)
   end
+
+  return self
 end

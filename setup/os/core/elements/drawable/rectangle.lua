@@ -60,4 +60,6 @@ function New(bounds, colour, borderThickness, borderColour)
 
     term.setCursorPos(lastPosX, lastPosY)
   end
+
+  return self
 end

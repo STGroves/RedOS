@@ -56,6 +56,6 @@ function FindColourStructByHex(hex)
   return tonumber(FindColourStructByDecimal(hex))
 end
 
-function self.FindColourStructByPaintID(id)
+function FindColourStructByPaintID(id)
   return colours[tonumber(id, 16)]
 end
