@@ -9,7 +9,7 @@ function New(x, y, width, height)
   if type(x) == "number" and type(y) == "number" and type(width) == "number" and type(height) == "number" then
     pos = vector.New(x, y)
     dims = vector.New(width, height)
-  elseif x.GetType() == "Vector" and y.GetType() == "Vector" then
+  elseif type(x) == table and x.GetType() == "Vector" and type(y) == "table" and y.GetType() == "Vector" then
     pos = x
     dims = y
   else
@@ -27,7 +27,7 @@ function New(x, y, width, height)
   function self.GetSize() return dims end
 
   function self.SetPosition(newPos)
-    if not newPos.GetType() == "Vector" then
+    if not type(newPos) == "table" or not newPos.GetType() == "Vector" then
       error("newPos must be a Vector")
     end
     
@@ -35,7 +35,7 @@ function New(x, y, width, height)
   end
 
   function self.SetSize(newSize)
-    if not newSize.GetType() == "Vector" then
+    if not type(newSize) == "table" or not newSize.GetType() == "Vector" then
       error("newSize must be a Vector")
     end
     
@@ -43,7 +43,7 @@ function New(x, y, width, height)
   end
 
   function self.Contains(otherRect)
-    if not otherRect.GetType() == "Rect" then
+    if not type(otherRect) == "table" or not otherRect.GetType() == "Rect" then
       error("Parameter must be a Rect")
     end
 
@@ -58,7 +58,7 @@ function New(x, y, width, height)
 
     if type(arg1) == "number" and type(arg2) == "number" then
       pos = vector.New(arg1, arg2)
-    elseif arg1.GetType() == "Vector" then
+    elseif type(arg1) == "table" and arg1.GetType() == "Vector" then
       pos = arg1
     else
       error("Parameters must be either 2 Numbers or a Vector.")

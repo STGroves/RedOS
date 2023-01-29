@@ -7,11 +7,11 @@ end) then
 end
 
 function New(bounds, colour, borderThickness, borderColour)
-  if not bounds.GetType() == "Rect" then
+  if not type(bounds) == "table" or not bounds.GetType() == "Rect" then
     error("bounds must be of type Rect!")
   end
 
-  if not colour.GetType() == "ColourStruct" and not type(colour) == "number" then
+  if not type(colour) == "number" or not colour.GetType() == "ColourStruct" then
     error("colour is not a valid colour!")
   end
 
@@ -26,7 +26,7 @@ function New(bounds, colour, borderThickness, borderColour)
     error("borderThickness must be 0 or a positive number!")
   end
 
-  if not borderColour.GetType() == "ColourStruct" and not type(borderColour) == "number" then
+  if not type(borderColour) == "number" or not borderColour.GetType() == "ColourStruct" then
     error("borderColour is not a valid colour!")
   end
 

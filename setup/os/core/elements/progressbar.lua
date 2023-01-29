@@ -6,7 +6,7 @@ if not pcall(function() require ("./drawable/rectangle") end) then
 end
 
 function New(barRect, targetValue, showPercentage, backColour, barColour)
-  if not barRect.GetType() == "Rect" then
+  if not type(barRect) == "table" or not barRect.GetType() == "Rect" then
     error("barRect must be of type Rect!")
   end
 
@@ -18,11 +18,11 @@ function New(barRect, targetValue, showPercentage, backColour, barColour)
     error("showPercentage must be a boolean!")
   end
 
-  if not backColour.GetType() == "ColourStruct" and not type(backColour) == "number" then
+  if not (type(backColour) == "number" or backColour.GetType() == "ColourStruct") then
     error("backColour is not a valid colour!")
   end
 
-  if not barColour.GetType() == "ColourStruct" and not type(barColour) == "number" then
+  if not (type(barColour) == "number" or barColour.GetType() == "ColourStruct") then
     error("barColour is not a valid colour!")
   end
 
