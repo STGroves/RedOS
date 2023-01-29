@@ -45,6 +45,9 @@ function New(barRect, targetValue, showPercentage, backColour, barColour)
     
     barRectangle.GetBounds().SetSize(barSize)
     barRectangle.Draw()
+
+    term.write(barSize.X)
+    term.setCursorPos(lastPosX, lastPosY)
   end
 
   function self.SetValue(newVal)
