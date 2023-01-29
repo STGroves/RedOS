@@ -1,5 +1,4 @@
-local self = {}
-function self.New(type)
+function New(type)
   local self = {}
 
   function self.GetType() return type end
@@ -7,7 +6,7 @@ function self.New(type)
   return self
 end
 
-function self.Clone(orig, copies)
+function Clone(orig, copies)
     copies = copies or {}
     local orig_type = type(orig)
     local copy
@@ -18,14 +17,12 @@ function self.Clone(orig, copies)
             copy = {}
             copies[orig] = copy
             for orig_key, orig_value in next, orig, nil do
-                copy[self.Clone(orig_key, copies)] = self.Clone(orig_value, copies)
+                copy[Clone(orig_key, copies)] = Clone(orig_value, copies)
             end
-            setmetatable(copy, self.Clone(getmetatable(orig), copies))
+            setmetatable(copy, Clone(getmetatable(orig), copies))
         end
     else -- number, string, boolean, etc
         copy = orig
     end
     return copy
 end
-
-return self

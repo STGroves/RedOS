@@ -2,8 +2,7 @@ if not pcall(function() require ("./vector") end) then
   os.loadAPI("./elements/vector")
 end
 
-local self = {}
-function self.New(x, y, width, height)
+function New(x, y, width, height)
   local pos
   local dims
   
@@ -91,5 +90,3 @@ function self.New(x, y, width, height)
 
   return self
 end
-
-return self

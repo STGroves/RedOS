@@ -1,11 +1,11 @@
 if not pcall(function() require ("./drawable/rectangle") end) then
   os.loadAPI("./elements/drawable/rectangle")
   os.loadAPI("./colours")
-  os.loadAPI("./rect")
-  os.loadAPI("./object")
+  os.loadAPI("./elements/rect")
+  os.loadAPI("./elements/object")
 end
 
-function ProgressBar(barRect, targetValue, showPercentage, backColour, barColour)
+function New(barRect, targetValue, showPercentage, backColour, barColour)
   if not barRect.GetType() == "Rect" then
     error("barRect must be of type Rect!")
   end
