@@ -2,7 +2,7 @@ if not pcall(function() require ("./vector") end) then
   os.loadAPI("./vector")
 end
 
-function Rect(x, y, width, height)
+function New(x, y, width, height)
   local pos
   local dims
   
