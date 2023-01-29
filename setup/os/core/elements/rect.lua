@@ -1,5 +1,5 @@
 if not pcall(function() require ("./vector") end) then
-  os.loadAPI("./vector")
+  os.loadAPI("./elements/vector")
 end
 
 local self = {}

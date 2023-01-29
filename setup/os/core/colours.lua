@@ -1,5 +1,5 @@
-if not pcall(function() require ("./object") end) then
-  os.loadAPI("./object")
+if not pcall(function() require ("./elements/object") end) then
+  os.loadAPI("./elements/object")
 end
 
 return function()

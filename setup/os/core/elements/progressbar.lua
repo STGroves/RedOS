@@ -1,5 +1,5 @@
 if not pcall(function() require ("./drawable/rectangle") end) then
-  os.loadAPI("./drawable/rectangle")
+  os.loadAPI("./elements/drawable/rectangle")
 end
 
 function ProgressBar(barRect, targetValue, showPercentage, backColour, barColour)

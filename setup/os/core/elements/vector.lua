@@ -1,5 +1,5 @@
 if not pcall(function() require ("./object") end) then
-  os.loadAPI("./object")
+  os.loadAPI("./elements/object")
 end
 
 local self = {}
