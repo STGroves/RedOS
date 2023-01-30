@@ -1,6 +1,4 @@
-if not pcall(function() require ("./object") end) then
-  os.loadAPI("./elements/object")
-end
+os.loadAPI("./elements/object")
 
 function New(x, y)
   local self = object.New("Vector")
@@ -14,9 +12,13 @@ function New(x, y)
   return self
 end
 
-function One() return object.Clone(New(1,1)) end
-function Zero() return object.Clone(New(0,0)) end
-function Left() return object.Clone(New(-1, 0)) end
-function Up() return object.Clone(New(0, -1)) end
-function Right() return object.Clone(New(1, 0)) end
-function Down() return object.Clone(New(0, 1)) end
+function Copy(vec)
+  return New(vec.X, vec.Y)
+end
+
+function One() return Copy(New(1,1)) end
+function Zero() return Copy(New(0,0)) end
+function Left() return Copy(New(-1, 0)) end
+function Up() return Copy(New(0, -1)) end
+function Right() return Copy(New(1, 0)) end
+function Down() return Copy(New(0, 1)) end

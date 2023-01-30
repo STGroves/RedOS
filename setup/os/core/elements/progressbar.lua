@@ -1,9 +1,7 @@
-if not pcall(function() require ("./drawable/rectangle") end) then
-  os.loadAPI("./elements/drawable/rectangle")
-  os.loadAPI("./colours")
-  os.loadAPI("./elements/rect")
-  os.loadAPI("./elements/object")
-end
+os.loadAPI("./elements/drawable/rectangle")
+os.loadAPI("./colours")
+os.loadAPI("./elements/rect")
+os.loadAPI("./elements/object")
 
 function New(barRect, targetValue, showPercentage, backColour, barColour)
   if not type(barRect) == "table" or not barRect.GetType() == "Rect" then

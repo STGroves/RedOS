@@ -1,12 +1,10 @@
-if not pcall(function() require ("./elements/object") end) then
-  os.loadAPI("./elements/object")
-end
+os.loadAPI("./elements/object")
 
 local function CreateStruct(dec, name)
   local self = object.New("ColourStruct")
   function self.GetDecimal() return dec end
-  function self.GetHex() return string.format("%02x", dec*256) end
-  function self.GetPaint() return string.format("%x", (math.log (dec) / math.log (2))) end
+  function self.GetHex() return string.format("%02x", dec * 256) end
+  function self.GetPaint() return string.format("%x", (math.log(dec) / math.log(2))) end
   function self.GetName() return name end
 
   return self

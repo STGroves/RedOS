@@ -1,10 +1,5 @@
-if not pcall(function()
-  require ("../rect")
-  require ("../../colours")
-end) then
-  os.loadAPI("./elements/rect")
-  os.loadAPI("./colours")
-end
+os.loadAPI("./colours")
+os.loadAPI("./elements/object")
 
 function New(bounds, colour, borderThickness, borderColour)
   if not type(bounds) == "table" or not bounds.GetType() == "Rect" then

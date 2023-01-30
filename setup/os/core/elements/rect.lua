@@ -1,6 +1,5 @@
-if not pcall(function() require ("./vector") end) then
-  os.loadAPI("./elements/vector")
-end
+os.loadAPI("./elements/vector")
+os.loadAPI("./elements/object")
 
 function New(x, y, width, height)
   local pos
@@ -9,7 +8,7 @@ function New(x, y, width, height)
   if type(x) == "number" and type(y) == "number" and type(width) == "number" and type(height) == "number" then
     pos = vector.New(x, y)
     dims = vector.New(width, height)
-  elseif type(x) == table and x.GetType() == "Vector" and type(y) == "table" and y.GetType() == "Vector" then
+  elseif type(x) == "table" and x.GetType() == "Vector" and type(y) == "table" and y.GetType() == "Vector" then
     pos = x
     dims = y
   else
@@ -89,4 +88,8 @@ function New(x, y, width, height)
   end
 
   return self
+end
+
+function Copy(rect)
+  return New(vector.Copy(rect.GetPosition()), vector.Copy(rect.GetSize()))
 end
